@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 指定数据连接驱动jar地址 -->
+	<classPathEntry
+		location="C:\Users\hzmpj\.m2\repository\mysql\mysql-connector-java\5.1.35\mysql-connector-java-5.1.35.jar" />
+	<!-- 一个数据库一个context -->
+	<context id="context1" targetRuntime="MyBatis3">
+		<!-- 注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" /><!-- 是否支持所有的注释 -->
+			<property name="suppressDate" value="true" /><!-- 是否生成注释时间戳 -->
+		</commentGenerator>
+
+		<!-- jdbc连接 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://172.30.248.228:3306/trc_goods?characterEncoding=UTF-8&amp;characterSetResults=UTF-8&amp;zeroDateTimeBehavior=convertToNull"
+			userId="protrc" password="qAQlhGXL" />
+
+		<!-- 生成实体类地址 -->
+		<javaModelGenerator targetPackage="com.tairan.cloud.model"
+			targetProject="E:\workspace\my-test\src\main\java">
+			<property name="trimStrings" value="true" /><!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+		</javaModelGenerator>
+
+		<!-- 生成mapxml文件 -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="E:\workspace\my-test\src\main\resources" />
+
+		<!-- 生成mapxml对应client，也就是接口dao -->
+		<javaClientGenerator targetPackage="com.tairan.cloud.dao"
+			targetProject="E:\workspace\my-test\src\main\java" type="XMLMAPPER" />
+
+		<!-- 配置表信息 schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample 
+			是否生成 example类 -->
+		<table schema="trc_goods" tableName="web" domainObjectName="Web"
+			enableCountByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" enableUpdateByExample="false">
+			<!-- 忽略列，不生成bean 字段 -->  
+            <ignoreColumn column="FRED" />  
+            <!-- 指定列的java数据类型 -->  
+           <!--  <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->
+		</table>
+		<!-- <table schema="CL_DEMO" tableName="tb_role" /> <table schema="CL_DEMO" 
+			tableName="tb_permission" /> <table schema="CL_DEMO" tableName="tb_role_user" 
+			/> <table schema="CL_DEMO" tableName="tb_permission_role" /> -->
+	</context>
+</generatorConfiguration>
