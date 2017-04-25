@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd 
+						http://www.springframework.org/schema/aop 
+						http://www.springframework.org/schema/aop/spring-aop.xsd 
+						http://www.springframework.org/schema/task 
+						http://www.springframework.org/schema/task/spring-task.xsd ">
+						
+						
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:redis.properties</value>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<import resource="classpath:applicationContext-redis.xml" />
+
+	<context:component-scan base-package="com.tairan.cloud">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<context:annotation-config />
+
+	<!-- task3测试 -->
+	<bean id="task3" class="com.tairan.cloud.service.Task3">
+	</bean>
+
+	<bean id="scheduleTask3"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task3" />
+		<property name="targetMethod" value="test" />
+	</bean>
+
+	<bean id="cronTask3"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="scheduleTask3" />
+		<property name="cronExpression" value="0 44 9 ? * *" />
+	</bean>
+
+	<bean id="spide"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		autowire="no">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTask3" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- task任务扫描注解 -->
+	<task:annotation-driven />
+
+	<task:scheduled-tasks>
+		<task:scheduled ref="task1" method="test" cron="${task1}" />
+	</task:scheduled-tasks>
+
+</beans>
