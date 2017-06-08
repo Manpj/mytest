@@ -1,7 +1,7 @@
 package com.tairan.cloud.service.string;
 
 import org.apache.commons.lang3.StringUtils;
-
+//http://blog.csdn.net/qingmengwuhen1/article/details/52175303
 public class StringAndStringBuffer {
 	
 	public static void addString(String str) {
@@ -16,7 +16,7 @@ public class StringAndStringBuffer {
 		i=i+1;
 	}
 	
-	
+	//String不可变性
 	public static void main(String[] args) {
 		String str="java";
 		StringBuffer sb=new StringBuffer("my");
