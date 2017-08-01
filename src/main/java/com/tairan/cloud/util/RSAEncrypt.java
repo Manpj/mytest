@@ -550,64 +550,53 @@ public class RSAEncrypt {
 		// rsaPairFile = new File(getRSAPairFilePath());
 	}
 
-	/** 返回已初始化的默认的公钥。 */
+	/**
+	 * 返回已初始化的默认的公钥。
+	 * 
+	 * @throws IOException
+	 */
 
-//	public static RSAPublicKey getDefaultPublicKey() {
-//
-//		KeyPair keyPair = getKeyPair();
-//
-//		if (keyPair != null) {
-//
-//			return (RSAPublicKey) keyPair.getPublic();
-//
-//		}
-//
-//		return null;
-//
-//	}
-//
-//	/**
-//	 * 135 返回RSA密钥对。 136
-//	 */
-//
-//	public static KeyPair getKeyPair() {
-//
-//		// 首先判断是否需要重新生成新的密钥对文件
-//
-//		if (isCreateKeyPairFile()) {
-//
-//			// 直接强制生成密钥对文件，并存入缓存。
-//
-//			return generateKeyPair();
-//
-//		}
-//
-//		if (oneKeyPair != null) {
-//
-//			return oneKeyPair;
-//
-//		}
-//
-//		return readKeyPair();
-//
-//	}
+	// public static RSAPublicKey getDefaultPublicKey() {
+	//
+	// KeyPair keyPair = getKeyPair();
+	//
+	// if (keyPair != null) {
+	//
+	// return (RSAPublicKey) keyPair.getPublic();
+	//
+	// }
+	//
+	// return null;
+	//
+	// }
+	//
+	// /**
+	// * 135 返回RSA密钥对。 136
+	// */
+	//
+	// public static KeyPair getKeyPair() {
+	//
+	// // 首先判断是否需要重新生成新的密钥对文件
+	//
+	// if (isCreateKeyPairFile()) {
+	//
+	// // 直接强制生成密钥对文件，并存入缓存。
+	//
+	// return generateKeyPair();
+	//
+	// }
+	//
+	// if (oneKeyPair != null) {
+	//
+	// return oneKeyPair;
+	//
+	// }
+	//
+	// return readKeyPair();
+	//
+	// }
 
-	public static void main(String[] args) {
-		// String password =
-		// "151f1f87a3e4b63ced7e6f9d9f892946ee5b342a21e6e25529d88f9dac53973ef745405363756d0eb16e9eb0fa9fa010da72701fe3c00fa38fd79badd2afc3815f1736174a39024e0a9618ed2adfdb7c2c1d59e8e41239eb0c14ed09cb055d4c0c22cf834f4119689101bbe272cd3e8dd40ee733437eaa67566f4ef856b1ab8c";
-		// String key =
-		// "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJb6ZP8h1/6P1HMEH5YcJ9E26gke4fxEQN9fUBMrMY9DSTTfzbokTw+ibCfQwu6oXq0UIdXcXPUFbY7uhIBBcaEsvX05SY7L8E61duyhGDAvtYRtg5tO4JRCLW4nUYC4q9iPj3bvHybDoHd4MRO7jryyRcNZjr50VeFV3SdwbidfAgMBAAECgYARLcKKKS6rf3Ab+i8h5Gg/bPEqQoJSMu3yvKSe2b5U38IXqxN8h58bV07ZJO7ZOv0y0mSbMey90HVL2yXmdgvYrzw9r47TFdbemM3/XFdWo9rgAtL/OjnPYS+Swn3tHwBZBKkWraIfMpSG6puL8PO0YNdfRBFu6i+pyHR0ICmvMQJBAMsPrOs4G+zxnePLJB0SDijBNrNypWNdMl5GhmirhF50bm0mPbiaUPuOmrGb6uxQajBsbvPUCecHTBdaJ3+IoicCQQC+Vq+7h46EtUcgrbwCBqYFHfwrLxD/srPwgLTL6R1P1Sk3PurHMWspiuS8VhxDDR2nhIfPEIgBJsLUoR8pCGwJAkBnbOCCHd37XUUyFPGb7OpRT7fwxl/+sCVLZ1hmT5XoFh14cpXVRKQivIuGEwggvQSZDWGlx0YT6d+TtVOQ3aLZAkA1CQh8U2A1wCEqjN5HHj0iTeGW0s2EwfF7gRFfg/wD45xRZXmbuTxn3eiwRbooQL5TkA0beDq9P2SoRKDfGRapAkEAhytnKkRvlQaZiOQGYEmAiLmkJO7ZaCbl/kevNPxfSC/LtNNk0+ZyY+WMMoswQ1TA1nAwwBXXT6jDflqNUWXY5w==";
-		// String pubKey =
-		// "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCW+mT/Idf+j9RzBB+WHCfRNuoJHuH8REDfX1ATKzGPQ0k03826JE8Pomwn0MLuqF6tFCHV3Fz1BW2O7oSAQXGhLL19OUmOy/BOtXbsoRgwL7WEbYObTuCUQi1uJ1GAuKvYj4927x8mw6B3eDETu468skXDWY6+dFXhVd0ncG4nXwIDAQAB";
-		// RSAPublicKey publicKey = RSAEncrypt.loadPublicKeyByStr(pubKey);
-		// String hello =
-		// RSAEncrypt.bytesToHexString(RSAEncrypt.encrypt(publicKey,
-		// "hello".getBytes()));
-		// System.out.println(hello);
-		// RSAPrivateKey a = RSAEncrypt.loadPrivateKeyByStr(key);
-		// byte[] data = RSAEncrypt.decrypt(a,
-		// RSAEncrypt.hexStringToBytes(hello));
-		// System.out.println(new String(data));
+	public static void main(String[] args) throws IOException {
 		/**
 		 * 生成密钥对
 		 */
@@ -615,15 +604,14 @@ public class RSAEncrypt {
 		/**
 		 * 公钥加密
 		 */
-		// String pubKey =
-		// "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcFaDIoDkygR+tH57txVKM+bmkH/B1MdPuH8ZH8xVx9PU0RU2KV++1nnGeziUa9iqLDCThnKz4iUHMBFum3iWxR4AjjvSsT/F25ezfRbWwXIB4aK17Nbs1X4KDbaZHAhuApF5C3b1YIk5nt1xmV3sN+3MCr7NIWxVdt+7G8sb3zwIDAQAB";
-		// String key
-		// ="MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJwVoMigOTKBH60fnu3FUoz5uaQf8HUx0+4fxkfzFXH09TRFTYpX77WecZ7OJRr2KosMJOGcrPiJQcwEW6beJbFHgCOO9KxP8Xbl7N9FtbBcgHhorXs1uzVfgoNtpkcCG4CkXkLdvVgiTme3XGZXew37cwKvs0hbFV237sbyxvfPAgMBAAECgYBuMgLSwfO/yVPQyTtOSPpwFzrOOdJtGyGxw3Mchu0ECFo5bhhBbLYK9nLnGEkwEM2WX5uGQTQJP/ZZEFaYp8vZko2MX7pfA81b3mP/MeU4qJIZkeGrCClYqUWuGxdHE/x1CvqWpcj5I4z3GL3dtZJYqiI29doUNVio7bb1D+V6iQJBAN2VqESAwMQslk7Z4AdzaeuZEkPonYk0tELzRPXb81T+3KICbzptYIRQOpgUAvT9I7o1Z0qTavxQa/qK8cgtpzUCQQC0U6Umo9d18gQmtq2RU7TF4myW6oommbLl+0P5cf/TAOSohg46mA+VJpnu3tRsmZ9QqryWFw/Fr9LnMP4Q7c9zAkAXnQM5iZ8BSN8buAwvvxTijoVrxzZCkONE3zfSG4Zq4F4Sxb+kslM+xm34FunZwcA078v6HougJ9HZ+USa2IKhAkBwr5ySquwnvlctwhZwrHhY+IeXP3WZbY7H/N6bcMvHFdXOIgeeQgvqzrZ++SyRuOY/yJIU0NCAXsFSy+DYv2NVAkBzbBd5dUFiH67FgKuwLtGx4XNsIhyPbnG3gTQfFxu5U4a23LkP7ryqN22+bFzoA4znWlkmlCtcNQO0sMcAxBoa";
-		// RSAPublicKey publicKey = RSAEncrypt.loadPublicKeyByStr(pubKey);
-		// String password =
-		// RSAEncrypt.bytesToHexString(RSAEncrypt.encrypt(publicKey,
-		// "830408wl".getBytes()));
-		// System.out.println(password);
+		String pubKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdm//J+YtPaTn3c/WkqomF907MHbLi28xb4xHgWrqC10NoOI/xgeejBEJ38ms2APzalRGdgST3V8ThXyHPM44dof//DhPJ8oj5dLVssqxn2bxw70J7hZW4I7rIGiLtEFDW4xjKet4q2HSgE2lpg4HP37clCGRbRqvSQGHSn2kFMQIDAQAB";
+		// String key =
+		// "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJwVoMigOTKBH60fnu3FUoz5uaQf8HUx0+4fxkfzFXH09TRFTYpX77WecZ7OJRr2KosMJOGcrPiJQcwEW6beJbFHgCOO9KxP8Xbl7N9FtbBcgHhorXs1uzVfgoNtpkcCG4CkXkLdvVgiTme3XGZXew37cwKvs0hbFV237sbyxvfPAgMBAAECgYBuMgLSwfO/yVPQyTtOSPpwFzrOOdJtGyGxw3Mchu0ECFo5bhhBbLYK9nLnGEkwEM2WX5uGQTQJP/ZZEFaYp8vZko2MX7pfA81b3mP/MeU4qJIZkeGrCClYqUWuGxdHE/x1CvqWpcj5I4z3GL3dtZJYqiI29doUNVio7bb1D+V6iQJBAN2VqESAwMQslk7Z4AdzaeuZEkPonYk0tELzRPXb81T+3KICbzptYIRQOpgUAvT9I7o1Z0qTavxQa/qK8cgtpzUCQQC0U6Umo9d18gQmtq2RU7TF4myW6oommbLl+0P5cf/TAOSohg46mA+VJpnu3tRsmZ9QqryWFw/Fr9LnMP4Q7c9zAkAXnQM5iZ8BSN8buAwvvxTijoVrxzZCkONE3zfSG4Zq4F4Sxb+kslM+xm34FunZwcA078v6HougJ9HZ+USa2IKhAkBwr5ySquwnvlctwhZwrHhY+IeXP3WZbY7H/N6bcMvHFdXOIgeeQgvqzrZ++SyRuOY/yJIU0NCAXsFSy+DYv2NVAkBzbBd5dUFiH67FgKuwLtGx4XNsIhyPbnG3gTQfFxu5U4a23LkP7ryqN22+bFzoA4znWlkmlCtcNQO0sMcAxBoa";
+		RSAPublicKey publicKey = RSAEncrypt.loadPublicKeyByStr(pubKey);
+
+		String password = RSAEncrypt.bytesToHexString(
+				RSAEncrypt.encrypt(publicKey, FileUtils.getContent("D:\\Program Files\\Redis\\dump.rdb")));
+		System.out.println(password);
 		/**
 		 * 私钥解密
 		 */
@@ -635,14 +623,16 @@ public class RSAEncrypt {
 		/**
 		 * 测试1
 		 */
-		//00d492084c3cf4a893d23cb3864602aca8c00f18e948530553d07d49f996172ec809e38faa4a3deb36084f4378759bf7bd3c5486ab1b3a24e700fb282bc0db35e9
-		RSAPublicKey publicKey = getRSAPublidKey(
-				"00d492084c3cf4a893d23cb3864602aca8c00f18e948530553d07d49f996172ec809e38faa4a3deb36084f4378759bf7bd3c5486ab1b3a24e700fb282bc0db35e9",
-				"010001");
-//		String password = RSAEncrypt.bytesToHexString(RSAEncrypt.encrypt(publicKey, "830408wl".getBytes()));
-//		System.out.println(password);
-		String password = encryptString(publicKey, "830408wl");
-		System.out.println(password);
+		// 00d492084c3cf4a893d23cb3864602aca8c00f18e948530553d07d49f996172ec809e38faa4a3deb36084f4378759bf7bd3c5486ab1b3a24e700fb282bc0db35e9
+		// RSAPublicKey publicKey = getRSAPublidKey(
+		// "00d492084c3cf4a893d23cb3864602aca8c00f18e948530553d07d49f996172ec809e38faa4a3deb36084f4378759bf7bd3c5486ab1b3a24e700fb282bc0db35e9",
+		// "010001");
+		//// String password =
+		// RSAEncrypt.bytesToHexString(RSAEncrypt.encrypt(publicKey,
+		// "830408wl".getBytes()));
+		//// System.out.println(password);
+		// String password = encryptString(publicKey, "830408wl");
+		// System.out.println(password);
 		/**
 		 * 测试2
 		 */
