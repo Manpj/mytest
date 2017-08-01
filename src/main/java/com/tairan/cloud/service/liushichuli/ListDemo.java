@@ -1,5 +1,7 @@
 package com.tairan.cloud.service.liushichuli;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -9,6 +11,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.MapUtils;
+import org.junit.Test;
+
+import com.beust.jcommander.internal.Maps;
 import com.tairan.cloud.model.Student;
 
 /**
@@ -310,12 +316,12 @@ public class ListDemo {
 		/**
 		 * 分区相对分组的优势在于，我们可以同时得到两类结果，在一些应用场景下可以一步得到我们需要的所有结果
 		 */
-		//将数组分为奇数和偶数
+		// 将数组分为奇数和偶数
 		/**
-		 * 以上介绍的所有收集器均实现自接口java.util.stream.Collector
-		 * 我们也可以实现该接口来定义自己的收集器
+		 * 以上介绍的所有收集器均实现自接口java.util.stream.Collector 我们也可以实现该接口来定义自己的收集器
 		 */
 	}
+
 	/**
 	 * 并行流式数据处理
 	 */
@@ -330,6 +336,20 @@ public class ListDemo {
 		 * 启动并行就会涉及到多线程的安全问题
 		 */
 	}
+
+	/**
+	 * 两个集合 有一个字段相等 如果另外一个字段也相等
+	 * 
+	 * @param args
+	 */
+	public void testMap111() {
+		Map map1 = Maps.newHashMap();
+		Map map2 = Maps.newHashMap();
+	//	MapUtils.
+		
+	}
+	
+	
 	
 	
 	public static void main(String[] args) {
